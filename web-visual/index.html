@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>File Catalog Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <span class="dot"></span>
+      <div>
+        <div class="title">File Catalog</div>
+        <div class="subtitle">Browse | Filter | Inspect</div>
+      </div>
+    </div>
+    <input id="searchInput" type="search" placeholder="Search filename, summary, modules, tag..." />
+  </header>
+
+  <main class="layout">
+    <section class="filters">
+      <div class="filter-group">
+        <label for="extFilter">Extension</label>
+        <select id="extFilter">
+          <option value="">All</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <label for="tagFilter">Tag</label>
+        <select id="tagFilter">
+          <option value="">All</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <label for="modulesFilter">Modules (multi)</label>
+        <select id="modulesFilter" multiple size="4"></select>
+      </div>
+      <div class="filter-group">
+        <label for="contentTypeFilter">Content type</label>
+        <select id="contentTypeFilter">
+          <option value="">All</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <label for="processStepFilter">Process step</label>
+        <select id="processStepFilter">
+          <option value="">All</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <label for="languageFilter">Language</label>
+        <select id="languageFilter">
+          <option value="">All</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <label for="imagesFilter">Has images</label>
+        <select id="imagesFilter">
+          <option value="">All</option>
+          <option value="true">Yes</option>
+          <option value="false">No</option>
+        </select>
+      </div>
+    </section>
+
+    <section class="content">
+      <div class="table-wrapper">
+        <table id="filesTable">
+          <thead>
+            <tr>
+              <th data-sort="filename">Filename</th>
+              <th data-sort="tag">Tag</th>
+              <th data-sort="content_type">Content Type</th>
+              <th data-sort="modules">Modules</th>
+              <th data-sort="size_kb">Size (KB)</th>
+              <th data-sort="page_count">Pages</th>
+              <th data-sort="summary">Summary</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+
+      <aside id="detailPanel" class="detail hidden">
+        <div class="detail-header">
+          <div>
+            <div id="detailFilename" class="detail-title"></div>
+            <div id="detailPath" class="detail-path"></div>
+          </div>
+          <button id="closeDetail" aria-label="Close detail">×</button>
+        </div>
+        <div class="detail-body">
+          <div class="badge-row" id="detailBadges"></div>
+          <div class="section">
+            <div class="section-title">Summary</div>
+            <p id="detailSummary"></p>
+          </div>
+          <div class="section">
+            <div class="section-title">Metadata</div>
+            <dl id="detailMeta" class="meta-grid"></dl>
+          </div>
+          <div class="section">
+            <div class="section-title">Modules</div>
+            <div id="detailModules" class="chips"></div>
+          </div>
+          <div class="section">
+            <div class="section-title">File</div>
+            <div class="file-link" id="detailLink"></div>
+          </div>
+        </div>
+      </aside>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
