@@ -1,0 +1,6 @@
+{
+  "input_root_path": "\\\\rete-ud-2\\dfs\\tdl\\documents\\Cliente\\ElemasterKseniia\\",
+  "include_folders": ["SpecifichePersonalizzazioni/MES"],
+  "exclude_folders": ["SpecifichePersonalizzazioni/TPM", "AreaSys", "Assistenza", "Commerciali", "Interni", "PianiGoLive"],
+  "tag": "MES"
+}
